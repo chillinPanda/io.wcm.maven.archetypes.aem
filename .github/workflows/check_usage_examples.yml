@@ -35,9 +35,9 @@ jobs:
         sudo apt update
         sudo apt install -y libxml2-utils
     - run: |
-        echo ""
-        echo "=== Output fist example 'Minimal AEM project with FileVault package layout and Java 11 for AEMaaCS' ==="
-        echo ""
+        echo " "
+        echo "=== Output first example 'Minimal AEM project with FileVault package layout and Java 11 for AEMaaCS' ==="
+        echo " "
         
         HTML_FILE="target/site/usage.html"
         
@@ -48,3 +48,13 @@ jobs:
         MVN_EXAMPLE_1EXAMPLE_1=$(xmllint --html --xpath "$XPATH" "$HTML_FILE" 2>/dev/null)
         
         echo "$MVN_EXAMPLE_1EXAMPLE_1"
+        
+        # Generate first example
+        DIR_EXAMPLE_1="generate_example_1"
+        echo " "
+        echo "=== Generate first example into $DIR_EXAMPLE_1 ==="
+        echo " "
+        
+        mkdir "$DIR_EXAMPLE_1"
+        cd "$DIR_EXAMPLE_1"
+        echo "$MVN_EXAMPLE_1EXAMPLE_1" | bash
