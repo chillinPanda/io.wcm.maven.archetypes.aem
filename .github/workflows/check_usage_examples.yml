@@ -31,6 +31,15 @@ jobs:
       run: mvn site
     - run: |
         echo ""
-        echo "=== output target/site/usage.html ==="
+        echo "=== Output fist example 'Minimal AEM project with FileVault package layout and Java 11 for AEMaaCS' ==="
         echo ""
-        cat target/site/usage.html 
+        
+        HTML_FILE="target/site/usage.html"
+        
+        # XPATH to first example
+        XPATH="//h5[@id='Minimal_AEM_project_with_FileVault_package_layout_and_Java_11_for_AEMaaCS']/following-sibling::div/pre/code/text()"
+        
+        # get the content
+        MVN_EXAMPLE_1EXAMPLE_1=$(xmllint --html --xpath "$XPATH" "$HTML_FILE" 2>/dev/null)
+        
+        echo "$MVN_EXAMPLE_1EXAMPLE_1"
