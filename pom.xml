@@ -41,6 +41,9 @@
   <properties>
     <site.url.module.prefix>tooling/maven/archetypes/aem</site.url.module.prefix>
     <maven.archetype.version>3.3.1</maven.archetype.version>
+
+    <!-- WORKAROUND!!! set it explicitly here, since I am on a fork without releases -->
+    <releasedVersion.version>3.9.0</releasedVersion.version>
   </properties>
 
   <scm>
@@ -75,7 +78,10 @@
         </configuration>
       </plugin>
 
-      <!-- Set property ${releasedVersion.version} for current project - to be used in maven site -->
+      <!-- Set property ${releasedVersion.version} for current project - to be used in maven site
+
+      WORKAROUND!!! deactivate this, since I am on a fork without releases
+
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
@@ -88,6 +94,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
 
       <!-- No failsafe integration tests in archetype itself - make sure not to execute those from the generated test projects -->
       <plugin>
