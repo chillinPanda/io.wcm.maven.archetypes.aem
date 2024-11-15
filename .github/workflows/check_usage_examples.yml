@@ -29,6 +29,11 @@ jobs:
         cache: maven
     - name: Build site with Maven
       run: mvn site
+    - name: Install xmllint
+      shell: bash
+      run: |
+        sudo apt update
+        sudo apt install -y libxml2-utils
     - run: |
         echo ""
         echo "=== Output fist example 'Minimal AEM project with FileVault package layout and Java 11 for AEMaaCS' ==="
